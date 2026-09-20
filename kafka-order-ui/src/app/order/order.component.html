@@ -1,0 +1,85 @@
+<div class="container">
+
+  <h1>Création d'une commande</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+
+      <label for="customerName">
+        Nom du client
+      </label>
+
+      <input
+        id="customerName"
+        type="text"
+        formControlName="customerName"
+        placeholder="Mahdi">
+
+      @if (form.controls.customerName.touched &&
+           form.controls.customerName.invalid) {
+
+        <small class="error">
+          Le nom du client est obligatoire.
+        </small>
+      }
+
+    </div>
+
+    <div class="form-group">
+
+      <label for="product">
+        Produit
+      </label>
+
+      <input
+        id="product"
+        type="text"
+        formControlName="product"
+        placeholder="Laptop">
+
+      @if (form.controls.product.touched &&
+           form.controls.product.invalid) {
+
+        <small class="error">
+          Le produit est obligatoire.
+        </small>
+      }
+
+    </div>
+
+    <div class="form-group">
+
+      <label for="quantity">
+        Quantité
+      </label>
+
+      <input
+        id="quantity"
+        type="number"
+        formControlName="quantity"
+        min="1">
+
+      @if (form.controls.quantity.touched &&
+           form.controls.quantity.invalid) {
+
+        <small class="error">
+          La quantité doit être supérieure ou égale à 1.
+        </small>
+      }
+
+    </div>
+
+    <button type="submit">
+      Valider
+    </button>
+
+  </form>
+
+  @if (message) {
+    <p class="message">
+      {{ message }}
+    </p>
+  }
+
+</div>
