@@ -18,11 +18,13 @@ public class OrderConsumer {
         log.info("""
                 
                 Commande reçue
+                Id : {}
                 Client    : {}
                 Produit   : {}
                 Quantité  : {}
                 
                 """,
+                order.id(),
                 order.customerName(),
                 order.product(),
                 order.quantity()
